@@ -30,12 +30,10 @@ func _physics_process(delta):
 	# Calculate the angle of the movement vector
 	if velocity.length() > 0: # Only update the rotation if there's movement
 		rotation = velocity.angle()
-		if rotation >= PI/2 and rotation <= 3 * PI / 2:
-			animation.scale.y = -1
-			print(rotation)
-		else:
+		if rotation <= PI/2 and rotation >= -1*PI / 2:
 			animation.scale.y = 1
-			
+		else:
+			animation.scale.y = -1
 
 		# Adjust the angle to only allow horizontal rotation
 
