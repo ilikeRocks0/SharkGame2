@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhi2qitu84l5e"]
+
+[ext_resource type="Texture2D" uid="uid://2o32qoopeqqt" path="res://Screenshot 2024-08-04 221726.png" id="1_m138i"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_itwid"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_33jlu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rj1vj"]
+next_pass = SubResource("ShaderMaterial_33jlu")
+albedo_color = Color(0.412152, 0.412152, 0.412152, 1)
+albedo_texture = ExtResource("1_m138i")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u2lby"]
+size = Vector3(1.84626, 0.588867, 1.95453)
+
+[node name="TileSet" type="Node3D"]
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+mesh = SubResource("PlaneMesh_itwid")
+surface_material_override/0 = SubResource("StandardMaterial3D_rj1vj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111751, -0.138602, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0527611, -0.205566, 0.01828)
+shape = SubResource("BoxShape3D_u2lby")
