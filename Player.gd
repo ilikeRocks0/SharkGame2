@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 const SPEED = 200.0
@@ -38,3 +39,7 @@ func _physics_process(delta):
 		# Adjust the angle to only allow horizontal rotation
 
 	move_and_slide()
+
+#
+#func damage():
+	#f

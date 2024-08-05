@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://7afsx4n55q1c"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_fsdrc"]
+[ext_resource type="Texture2D" uid="uid://c1mj82mu82tsj" path="res://scuba_diver.png" id="2_dkfe2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r42xb"]
+atlas = ExtResource("2_dkfe2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51504"]
+atlas = ExtResource("2_dkfe2")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83jhw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r42xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51504")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3ua1"]
+size = Vector2(61, 34)
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(222, 144)
+script = ExtResource("1_fsdrc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_83jhw")
+frame_progress = 0.316808
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 6)
+shape = SubResource("RectangleShape2D_m3ua1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+limit_right = 560
+limit_bottom = 560
